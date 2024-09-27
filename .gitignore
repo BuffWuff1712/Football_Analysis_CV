@@ -1,0 +1,42 @@
+# Ignore virtual environment directory
+.venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+*.dll
+*.dylib
+*.pyd
+
+# Ignore log and temporary files
+*.log
+*.tmp
+*.temp
+
+# Ignore video files
+input_videos/
+*.avi
+*.mp4
+*.mov
+*.mkv
+
+# Ignore output from YOLO runs (adjust as necessary)
+runs/
+
+# Ignore model weights or large binary files
+*.pt
+*.h5
+*.onnx
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore editor specific settings
+.vscode/
+.idea/
+
+# Ignore Python virtual environment (if stored in another location)
+env/
+venv/
