@@ -14,6 +14,9 @@ def main():
                                        read_from_stub=True, 
                                        stub_path='stubs/track_stubs.pkl')
 
+    # Interpolate Ball Positions
+    tracks["ball"] = tracker.interpolate_ball_positions(tracks["ball"])
+    
     # Assign Player Teams
     team_assigner = TeamAssigner()
     team_assigner.assign_team_color(video_frames[0], tracks['players'][0])
@@ -26,17 +29,6 @@ def main():
             tracks['players'][frame_num][player_id]['team'] = team
             tracks['players'][frame_num][player_id]['team_color'] = team_assigner.team_colors[team]
 
-    # # save cropped image of a player
-    # for track_id, player in tracks['players'][0].items():
-    #     bbox = player['bbox']
-    #     frame = video_frames[0]
-
-    #     # crop bbox from frame
-    #     cropped_image = frame[int(bbox[1]):int(bbox[3]), int(bbox[0]): int(bbox[2])]
-
-    #     # save the cropped image
-    #     cv2.imwrite(f'output_videos/cropped_img.jpg', cropped_image)
-    #     break
 
     # Draw Output
     ## Draw object Tracks
